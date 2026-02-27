@@ -86,7 +86,7 @@ Live Risk Prediction
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your-username/credit-risk-predictor.git
+git clone https://github.com/Nexxer-cmd/credit-risk-predictor.git
 cd credit-risk-predictor
 ```
 
@@ -141,6 +141,7 @@ pandas
 scikit-learn
 joblib
 streamlit
+altair
 ```
 
 (Optional for visualization)
