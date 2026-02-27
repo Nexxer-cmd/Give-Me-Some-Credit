@@ -1,5 +1,5 @@
 pandas
 scikit-learn
 joblib
-streamlit
+streamlit>=1.22.0
 altair
