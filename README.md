@@ -1,292 +1,230 @@
-🚀 Credit Risk Predictor
-AI-Powered Loan Default Risk Assessment System
+# 🚀 Credit Risk Predictor  
+### AI-Powered Loan Default Risk Assessment System  
 
-A production-ready machine learning web application that predicts the probability of a borrower defaulting within the next two years.
+An end-to-end Machine Learning web application that predicts the probability of a borrower defaulting within the next two years.
 
-📌 Introduction
+Built with:
+- 🧠 Scikit-Learn (HistGradientBoostingClassifier)
+- 🌐 Streamlit (Interactive Web Interface)
+- 📊 Altair (Data Visualization)
+- 💾 Joblib (Model Serialization)
 
-Lending decisions are high-stakes. Even small miscalculations in credit risk assessment can lead to significant financial losses.
+---
 
-This project delivers an interactive AI-powered Credit Risk Prediction system built with:
+## 📌 Overview
 
-🧠 Machine Learning (HistGradientBoostingClassifier)
+This project provides a production-style credit risk prediction system that:
 
-🌐 Streamlit (Premium UI with multi-step risk wizard)
+- Assesses borrower default risk in real-time
+- Visualizes historical credit data trends
+- Demonstrates a full ML pipeline (training → deployment)
 
-📊 Altair (Interactive data insights)
+The model predicts the likelihood of **Serious Delinquency (90+ days past due)** within 2 years.
 
-🗃️ Robust preprocessing & model serialization
+---
 
-The system enables financial institutions (or analysts) to:
+## 🎯 Target Variable
 
-Evaluate borrower risk in real-time
+`SeriousDlqin2yrs`
 
-Explore historical dataset insights
+Binary classification:
+- `0` → No serious delinquency
+- `1` → Serious delinquency within 2 years
 
-Understand the architecture behind the AI engine
+---
 
-📖 Table of Contents
+## 🏗 System Architecture
 
-Project Overview
-
-System Architecture
-
-Features
-
-Installation
-
-Usage
-
-Model Training
-
-Dependencies
-
-Project Structure
-
-Data Insights Dashboard
-
-Example Output
-
-Troubleshooting
-
-Future Improvements
-
-License
-
-🎯 Project Overview
-
-The application predicts the probability that a borrower will experience serious delinquency (90+ days past due) within two years.
-
-🎯 Target Variable:
-
-SeriousDlqin2yrs
-
-🔍 Key Risk Factors Used:
-
-Revolving Utilization of Unsecured Lines
-
-Age
-
-Debt Ratio
-
-Monthly Income
-
-Delinquency History (30–59, 60–89, 90+ days late)
-
-Number of Open Credit Lines
-
-Real Estate Loans
-
-Number of Dependents
-
-🏗 System Architecture
+```
 Dataset (cs-training.csv)
         ↓
-Data Cleaning & Median Imputation
+Data Cleaning & Imputation
         ↓
 HistGradientBoostingClassifier
         ↓
 Model Serialization (model.joblib)
         ↓
-Streamlit Web App
+Streamlit Web Application
         ↓
-User Risk Prediction + Dashboard Insights
-🧠 Model
+Live Risk Prediction
+```
 
-The system uses:
+---
 
-HistGradientBoostingClassifier(
-    max_iter=100,
-    learning_rate=0.1,
-    max_depth=5,
-    random_state=42
-)
+## ✨ Features
 
-Why this model?
+### 1️⃣ Risk Assessment Wizard
+- Multi-step borrower profiling
+- Clean premium UI
+- Real-time risk scoring
+- Visual probability indicator
+- Risk categories:
+  - 🟢 Excellent (<10%)
+  - 🟡 Moderate (10–30%)
+  - 🔴 High (>30%)
 
-Optimized for large tabular datasets
+---
 
-Handles missing values efficiently
+### 2️⃣ Data Insights Dashboard
+- Age distribution analysis
+- Default rate by age group
+- Income vs Debt Ratio scatter plot
+- Baseline default rate
+- Interactive dataset preview
 
-Strong performance baseline
+---
 
-Faster than traditional Gradient Boosting
+### 3️⃣ Model Transparency Page
+- Problem statement explanation
+- Key predictive features
+- Technology stack overview
 
-✨ Features
-🧭 1. Multi-Step Risk Assessment Wizard
+---
 
-Clean, premium UI
+## ⚙️ Installation
 
-Step-by-step borrower profiling
+### 1️⃣ Clone Repository
 
-Animated risk indicator
-
-Risk classification tiers:
-
-🟢 Excellent Profile (<10%)
-
-🟡 Moderate Risk (10–30%)
-
-🔴 High Risk (>30%)
-
-📊 2. Data Insights Dashboard
-
-Explore:
-
-Age distribution vs default rates
-
-Income vs debt ratio scatter plots
-
-Default rate baseline
-
-Raw dataset viewer
-
-Built using Altair interactive visualizations.
-
-🏛 3. System Architecture Page
-
-Explains:
-
-Problem statement
-
-AI engine
-
-Predictive factors
-
-Technology stack
-
-⚙️ Installation
-1️⃣ Clone the Repository
+```bash
 git clone https://github.com/your-username/credit-risk-predictor.git
 cd credit-risk-predictor
-2️⃣ Create Virtual Environment (Recommended)
+```
+
+### 2️⃣ Create Virtual Environment (Recommended)
+
+```bash
 python -m venv venv
-source venv/bin/activate  # Mac/Linux
-venv\Scripts\activate     # Windows
-3️⃣ Install Dependencies
+source venv/bin/activate      # Mac/Linux
+venv\Scripts\activate         # Windows
+```
 
-Dependencies are defined in requirements.txt
+### 3️⃣ Install Dependencies
 
+```bash
 pip install -r requirements.txt
-▶️ Usage
-Run the Streamlit Application
+```
+
+---
+
+## ▶️ Running the Application
+
+```bash
 streamlit run app.py
+```
 
-The application will launch locally in your browser.
+The app will open in your default browser.
 
-🧠 Model Training
+---
 
-Training script: train.py
+## 🧠 Training the Model
 
 To retrain the model:
 
-Place cs-training.csv in the root directory.
+1. Place `cs-training.csv` in the project root.
+2. Run:
 
-Run:
-
+```bash
 python train.py
+```
 
 This will:
+- Clean missing values
+- Train the HistGradientBoostingClassifier
+- Save the model as `model.joblib`
 
-Load dataset
+---
 
-Apply median imputation
+## 📦 Dependencies
 
-Train HistGradientBoostingClassifier
-
-Save model as:
-
-model.joblib
-📦 Dependencies
-
-From requirements.txt :
-
+```
 pandas
 scikit-learn
 joblib
 streamlit
+```
 
-Optional (used in app):
-
+(Optional for visualization)
+```
 altair
-📁 Project Structure
+```
+
+---
+
+## 📁 Project Structure
+
+```
 credit-risk-predictor/
 │
 ├── app.py                 # Streamlit Web Application
 ├── train.py               # Model training script
 ├── model.joblib           # Trained ML model
-├── requirements.txt       # Project dependencies
-├── cs-training.csv        # Training dataset (not included)
+├── requirements.txt       # Dependencies
+├── cs-training.csv        # Dataset (not included)
 ├── Data Dictionary.xls    # Feature descriptions
 └── project.ipynb          # Experimental notebook
-📊 Data Insights Dashboard
+```
 
-The dashboard provides:
+---
 
-📈 Age vs Default Distribution
+## 📊 Example Prediction
 
-💰 Income vs Debt Ratio Scatter Plot
+**Input:**
+- Age: 35  
+- Monthly Income: $5,000  
+- Debt Ratio: 0.4  
+- No severe delinquency  
 
-📉 Baseline Default Rate
-
-🔍 Sample dataset preview
-
-It loads a sample (10,000 rows) for performance optimization.
-
-📌 Example Output
-Input:
-
-Age: 35
-
-Monthly Income: $5,000
-
-Debt Ratio: 0.4
-
-No severe delinquency history
-
-Output:
-Calculated Default Probability: 8.7%
+**Output:**
+```
+Default Probability: 8.7%
 Risk Level: Excellent Profile
-🛠 Troubleshooting
-❗ Model fails to load
+```
 
-Ensure:
+---
 
-model.joblib exists in root directory
+## 🛠 Troubleshooting
 
-You trained the model successfully
+### Model not loading?
+Ensure `model.joblib` exists in the root directory.
 
-❗ Dataset not loading in dashboard
+### Dataset not showing in dashboard?
+Ensure `cs-training.csv` is in the same directory.
 
-Ensure:
+### Missing modules?
+Run:
 
-cs-training.csv is present
-
-File name matches exactly
-
-❗ Module not found error
-
-Reinstall dependencies:
-
+```bash
 pip install -r requirements.txt
-🔮 Future Improvements
+```
 
-Model explainability (SHAP values)
+---
 
-Authentication system for lenders
+## 🔮 Future Improvements
 
-Docker containerization
+- SHAP model explainability
+- Docker containerization
+- REST API deployment
+- Cloud hosting (AWS / GCP)
+- Model performance metrics dashboard
+- User authentication system
 
-API endpoint version
+---
 
-Model performance metrics dashboard
+## 📜 License
 
-Cloud deployment (AWS/GCP/Azure)
+This project is for educational and demonstration purposes.
 
-👨‍💻 Contributors
+---
 
-Developed as a Machine Learning risk assessment system project.
+## 🌟 Why This Project Matters
 
-📜 License
+This project demonstrates:
+- End-to-end ML deployment
+- Financial risk modeling
+- Clean UI/UX design
+- Production-style architecture
+- Real-world business application
 
-This project is intended for educational and demonstration purposes.
+---
+
+Built with ❤️ using Python and Machine Learning.
